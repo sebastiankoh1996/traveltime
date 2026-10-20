@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   $('librarysubtitle').textContent=`${myPlaces().length} saved places · China`;
   $('fit').onclick=()=>{closeDetail();const ps=myPlaces(),mobile=matchMedia('(max-width:700px)').matches;const bottom=mobile?Math.min(sheet.getBoundingClientRect().height+24,innerHeight-180):50;if(ps.length)map.fitBounds(ps.map(p=>[p.lat,p.lng]),{paddingTopLeft:[mobile?36:420,105],paddingBottomRight:[mobile?36:60,bottom],maxZoom:15});else map.setView([35.5,104.5],4)};
   $('fit').click();
+  map.on('basemapready',()=>{if($('detail').hidden&&!adding)$('fit').click()});
   $('export').addEventListener('click',()=>$('toolsdialog').close());$('importfile').addEventListener('change',()=>$('toolsdialog').close());
   document.querySelectorAll('dialog').forEach(d=>{d.addEventListener('click',e=>{if(e.target!==d)return;const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close()})});
 });
