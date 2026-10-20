@@ -1,0 +1,1 @@
+{"framework":"Vinext shell, vanilla Leaflet planner","font":"system sans requested by Apple brief","priorPalette":"warm green/cream","motion":"CSS only","scope":"single planner screen and its dialogs","files":["public/planner/index.html","public/planner/ios.css","public/planner/ios-ui.js","public/planner/china.js","public/planner/amap-import.js"],"deletions":[]}
