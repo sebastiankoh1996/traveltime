@@ -1,4 +1,5 @@
 import vinext from "vinext";
+import { travelPocketPreview } from "./scripts/vite/travel-pocket-preview.mjs";
 import { defineConfig } from "vite";
 import hostingConfig from "./.openai/hosting.json";
 import { readExecutionProfile } from "./scripts/execution-profile.mjs";
@@ -53,6 +54,7 @@ export default defineConfig(async ({ command }) => {
         : {}),
     },
     plugins: [
+      ...(command === "serve" ? [travelPocketPreview()] : []),
       vinext(),
       sites({ mockAuth: !managedLinux }),
       connectorPreview(),

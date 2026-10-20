@@ -1,0 +1,24 @@
+Travel Time handoff
+
+Project: mobile-friendly China travel map website
+
+On the home PC:
+1. Extract this ZIP.
+2. Open a terminal in the extracted project folder.
+3. Install Node.js 22 or newer.
+4. Run: npm install
+5. Run: npm run dev -- --hostname 0.0.0.0
+6. Open the local address shown by the server.
+
+The phone preview used:
+http://192.168.88.83:5173/planner/index.html
+
+Important:
+- Saved maps and places are stored in this browser's local storage.
+- Before leaving this computer, use the app menu > Keep a copy > Export maps.
+- On the home PC, use Keep a copy > Import backup.
+- The social-link Travel pocket saves its inbox in browser storage too.
+- AMap share links work without an AMap developer key.
+- Social post extraction uses the configured server-side ScrapeCreators key; private or blocked posts can still use pasted captions.
+
+Cloud sync preparation: public/planner/cloud-sync.js is ready for a Supabase project. Configure url and anonKey, then create the travel_time_state table and policies described in the next setup step.

@@ -24,7 +24,7 @@ $('resolveform').onsubmit=async event=>{
       e.preventDefault();if(!sharedPlace)return;const f=new FormData(e.target),name=f.get('name').trim();if(!name){toast('Enter a place name');return}
       const mapId=f.get('map'),existing=state.places.find(p=>p.map===mapId&&p.amap?.placeId===place.placeId);
       if(existing){active=mapId;persist();shareDialog.close();$('search').value='';show(existing.id);toast('This place is already saved in this map');return}
-      const p={id:crypto.randomUUID(),map:mapId,name,lat,lng,color:f.get('color'),icon:f.get('icon'),note:f.get('note'),amap:{placeId:place.placeId,lat:place.lat,lng:place.lng,address:place.address,sourceUrl:place.sourceUrl}};
+      const p={id:placeUUID(),map:mapId,name,lat,lng,color:f.get('color'),icon:f.get('icon'),note:f.get('note'),amap:{placeId:place.placeId,lat:place.lat,lng:place.lng,address:place.address,sourceUrl:place.sourceUrl}};
       state.places.push(p);active=mapId;
       if(!persist()){state.places.pop();return}
       shareDialog.close();$('search').value='';show(p.id);toast('AMap place saved');
